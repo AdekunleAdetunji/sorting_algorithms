@@ -126,6 +126,7 @@ correction.
 * Please declare the prototype of the functions print_array and print_list in
 your sort.h header file
 * Please use the following data structure for doubly linked list:
+```
 /**
 * struct listint_s - Doubly linked list node
 *
