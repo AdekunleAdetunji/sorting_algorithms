@@ -19,7 +19,7 @@ void shell_sort(int *array, size_t size)
 		{
 			toSwap = array[i];
 			/*inner loop sorts each interval with insertion sort*/
-			for (j = i; j > gap - 1 && array[j - gap] >= toSwap; j -= gap)
+			for (j = i; j > gap - 1 && array[j - gap] > toSwap; j -= gap)
 				array[j] = array[j - gap];
 			array[j] = toSwap;
 		}
