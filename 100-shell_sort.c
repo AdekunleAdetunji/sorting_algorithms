@@ -13,7 +13,7 @@ void shell_sort(int *array, size_t size)
 	/*first get the value of gap with knth sequence*/
 	for (gap = 1; gap < size / 3; gap = gap * 3 + 1)
 		;
-	for (; gap > 0; gap = (gap - 1) / 3) /*loop decrements gap*/
+	for (; gap > 0; gap /= 3) /*loop decrements gap*/
 	{
 		for (i = gap; i < size; i++) /*outer loop*/
 		{
