@@ -1,5 +1,17 @@
 #include "sort.h"
 /**
+ * swap - swaps 2 elements in address locks
+ * @a: address of a
+ * @b: address of b
+ */
+void swap(int *a, int *b)
+{
+	int tmp = *a;
+
+	*a = *b;
+	*b = tmp;
+}
+/**
  * shell_sort -  sorts an array of integers in ascending order
  * using the Shell sort algorithm, using the Knuth sequence
  * @array: array to sort
@@ -20,8 +32,7 @@ void shell_sort(int *array, size_t size)
 			toSwap = array[i];
 			/*inner loop sorts each interval with insertion sort*/
 			for (j = i; j > gap - 1 && array[j - gap] > toSwap; j -= gap)
-				array[j] = array[j - gap];
-			array[j] = toSwap;
+				swap(&array[j], &array[j - gap]);
 		}
 		print_array(array, size);
 	}
