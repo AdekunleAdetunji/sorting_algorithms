@@ -22,6 +22,8 @@ void shell_sort(int *array, size_t size)
 	unsigned int gap, i, j; /*i for outer loop, j for inner loop*/
 	int toSwap;
 
+	if (!array || size < 2)
+		return;
 	/*first get the value of gap with knth sequence*/
 	for (gap = 1; gap < size / 3; gap = gap * 3 + 1)
 		;
