@@ -24,29 +24,19 @@ int max(int array[], size_t size)
  */
 void count_sort(int array[], size_t size, size_t den)
 {
-	int *count_temp, *temp_arr;
-	size_t i, max_val;
-
-	max_val = (max(array, size) / den) % 10;
-
-	count_temp = malloc(sizeof(int) *(max_val + 1));
-	if (!count_temp)
-		return;
-	for (i = 0; i <= max_val; i++)
-		count_temp[i] = 0;
+	int *temp_arr, count_temp[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	size_t i;
 
 	for (i = 0; i < size; i++) /* obtain int freq */
 		count_temp[(array[i] / den) % 10]++;
 
-	for (i = 1; i < max_val + 1; i++) /* obtain cummulative sum */
+	for (i = 1; i < 10; i++) /* obtain cummulative sum */
 		count_temp[i] += count_temp[i - 1];
 
 	temp_arr = malloc(sizeof(int) * size); /* allocate memory to temp_arr */
 	if (!temp_arr)
-	{
-		free(count_temp);
 		return;
-	}
+
 	/* iterate over the array assigning each value to its right idx */
 	for (i = size - 1; (int) i >= 0; i--)
 	{
@@ -58,7 +48,6 @@ void count_sort(int array[], size_t size, size_t den)
 	for (i = 0; i < size; i++)
 		array[i] = temp_arr[i];
 
-	free(count_temp);
 	free(temp_arr);
 }
 
