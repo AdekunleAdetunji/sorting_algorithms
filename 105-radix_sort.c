@@ -29,9 +29,11 @@ void count_sort(int array[], size_t size, size_t den)
 
 	max_val = (max(array, size) / den) % 10;
 
-	count_temp = calloc(sizeof(int), max_val + 1);
+	count_temp = malloc(sizeof(int) *(max_val + 1));
 	if (!count_temp)
 		return;
+	for (i = 0; i <= max_val; i++)
+		count_temp[i] = 0;
 
 	for (i = 0; i < size; i++) /* obtain int freq */
 		count_temp[(array[i] / den) % 10]++;
